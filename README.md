@@ -29,10 +29,7 @@ Duplicate-Question-Pairs-Detection-ML-DL/
 ├── notebooks/
 │ ├── Duplicate_question_pairs_using_ML.ipynb
 │ └── duplicate-question-pair-using-dl.ipynb
-│
-├── dataset/
-│ └── questions.csv
-│
+│ ├── dataset
 ├── requirements.txt
 └── README.md
 
