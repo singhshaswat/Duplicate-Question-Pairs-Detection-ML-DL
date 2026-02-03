@@ -153,19 +153,58 @@ This notebook focuses on **neural and transformer-based NLP models** using PyTor
 
 ---
 
-# 📈 ML vs DL — Comparison
+# 📊 ML vs DL — Model Performance Comparison
 
-| Aspect | Machine Learning | Deep Learning |
-|------|----------------|-------------|
-| Input Representation | Hand-crafted features | Learned embeddings |
-| Preprocessing | Heavy feature engineering | Minimal manual features |
-| Models | Logistic Regression, Random Forest | Neural nets, Transformers |
-| Compute Cost | Low–medium | High (GPU recommended) |
-| Training Time | Faster | Slower |
-| Scalability | Limited | Strong |
-| Performance | Moderate–good | Higher |
-| Interpretability | Easier | Harder |
-| Deployment Simplicity | Easier | More complex |
+The table below summarizes the quantitative performance of classical machine learning models versus the transformer-based deep learning approach.
+
+| Model                      | Validation Size | Train Acc | Val/Test Acc | Weighted F1 | ROC–AUC   |
+| -------------------------- | --------------- | --------- | ------------ | ----------- | --------- |
+| Logistic Regression        | 9,970           | 83.6%     | 75.8%        | 0.75        | 0.79      |
+| Random Forest              | 9,970           | 87.3%     | 76.1%        | 0.75        | 0.80      |
+| Transformer (MiniLM-L6-v2) | 80,870          | 91.9%     | **89.1%**    | **0.89**    | **0.955** |
+
+---
+# 🔍 Key Insights
+
+- Transformer-based models achieved a +13% absolute accuracy improvement over Random Forest baselines.
+
+- Weighted F1-score improved from 0.75 → 0.89, demonstrating superior handling of class imbalance.
+
+- ROC–AUC of 0.955 indicates excellent separability between duplicate and non-duplicate questions.
+
+- Early stopping during training ensured stable convergence and prevented overfitting.
+
+- Classical ML models rely heavily on hand-crafted lexical features, whereas transformers learn semantic representations end-to-end.
+
+- The deep learning model follows a Siamese setup built on sentence-transformers/all-MiniLM-L6-v2.
+
+---
+# ⚙️ Deep Learning Model Details
+
+- Architecture: Siamese Transformer Encoder
+
+- Backbone: sentence-transformers/all-MiniLM-L6-v2
+
+- Objective: Binary classification
+
+- Optimizer: Adam
+
+- Regularization: Early stopping & checkpointing
+
+- Hardware: GPU-accelerated training
+
+- Validation Set Size: 80,870 question pairs
+
+- Metrics Used: Accuracy, Weighted F1, ROC–AUC, confusion matrix
+
+---
+# 📌 Summary
+
+- Classical ML pipelines provide strong baselines with fast training and simple deployment.
+
+- Transformer models scale better and capture deep semantic relationships.
+
+- The DL system is production-ready with state-of-the-art performance on large validation sets.
 
 ---
 
